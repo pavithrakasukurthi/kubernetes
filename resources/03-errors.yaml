@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: error-test
+  label:
+    purpose: error-test
+
+spec:
+  containers:
+    - name: almalinux
+      image: almalinux:98tds
