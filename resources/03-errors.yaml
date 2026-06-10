@@ -7,7 +7,7 @@ metadata:
 
 spec:
   containers:
-    - name: frontend
-      image: nginx:gvcxgb # wrong image name to test imagepullbackoff
+    # - name: frontend
+    #   image: nginx:gvcxgb # wrong image name to test imagepullbackoff
     - name: almalinux
       image: almalinux:9 # missed start command to test crashloopbackoff error
