@@ -8,4 +8,4 @@ metadata:
 spec:
   containers:
     - name: almalinux
-      image: almalinux:98tds
+      image: almalinux:9
