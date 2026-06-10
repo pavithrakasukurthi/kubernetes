@@ -7,4 +7,4 @@ metadata:
 managedNodeGroups:
   - name: roboshop-stage
     instanceType: "t3.micro"
-    desiredCapacity: 2 #  by default this value is 3
+    desiredCapacity: 6 #  by default this value is 3
