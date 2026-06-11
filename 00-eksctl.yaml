@@ -6,5 +6,5 @@ metadata:
     region: us-east-1
 managedNodeGroups:
   - name: roboshop-stage
-    instanceType: "t3.micro"
-    desiredCapacity: 6 #  by default this value is 3
+    instanceType: "t3.small"
+    desiredCapacity: 3 #  by default this value is 3
