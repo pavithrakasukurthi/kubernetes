@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: roboshop
+  labels:
+    project: roboshop
+    environment: stage
+    component: frontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels: 
+      project: roboshop
+      environment: stage
+      component: frontend
+  template:
+    metadata:
+      name: deployment-demo
+      labels:
+        project: roboshop
+        environment: stage
+        component: frontend
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: catalogue
+
+spec:
+  type: loadBalancer
+  selector:
+    project: roboshop
+    environment: stage
+    component: frontend
+  ports:
+    protocol: TCP
+    port: 80
+    targetPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-headless
+
+spec:
+  clusterIP: none
+  selector:
+    project: roboshop
+    environment: stage
+    component: frontend
+  ports:
+    protocol: TCP
+    port: 80
+    targetPort: 80

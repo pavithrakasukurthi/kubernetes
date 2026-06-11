@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: resource-demo
+  namespace: roboshop
+  labels:
+    project: roboshop
+
+spec:
+  containers:
+    name: nginx
+    image: nginx
+  resources:
+      # soft request
+    requests:
+      cpu: "100m"
+      memory: "64Mi"
+      # hard request
+    limits:
+      cpu: "200m"
+      memory: "128Mi"

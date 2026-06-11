@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: np-demo
+  labels:
+    project: roboshop
+    environment: stage
+    component: frontend
+spec:
+  containers:
+    - name: nginx
+      image: nginx
