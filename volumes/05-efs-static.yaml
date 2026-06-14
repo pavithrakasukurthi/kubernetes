@@ -3,7 +3,7 @@ kind: PersistentVolume
 metadata:
   name: efs-static
 spec:
-  persistentVolumereclaimPolicy: Retain
+  persistentVolumeReclaimPolicy: Retain
   volumeMode: Filesystem
   storageClassname: ""
   capacity:
