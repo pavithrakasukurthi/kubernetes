@@ -21,7 +21,7 @@ spec:
   containers:
     - name: nginx
       image: nginx
-      volumesMounts:
+      volumeMounts:
         - name: nginx-html
           mountpath: /usr/share/nginx/html
   nodeSelector: 
