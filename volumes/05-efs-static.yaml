@@ -5,7 +5,7 @@ metadata:
 spec:
   persistentVolumeReclaimPolicy: Retain
   volumeMode: Filesystem
-  storageClassname: ""
+  storageClassName: ""
   capacity:
     storage: 5Gi
   accessModes:
