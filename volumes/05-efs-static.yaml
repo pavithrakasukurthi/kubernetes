@@ -12,7 +12,7 @@ spec:
     - ReadWriteOnce
   csi:
     driver: efs.csi.aws.com
-    volumeHandle: 
+    volumeHandle: fs-052cca4e98a4cb71c
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
