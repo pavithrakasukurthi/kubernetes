@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: PersistentVolumeClaim 
+metadata:
+  name: ebs-dynamic
+spec:
+  storageClassName: roboshop-ebs
+  resources:
+    requests:
+      storage: 5Gi
+  accessModes:
+    - ReadWriteOnce
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ebs-dynamic
+  labels:
+    project: roboshop
+    purpose: practice
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+      volumesmounts:
+        - name: nginx-html
+          mountpath: /usr/share/nginx/html
+  nodeSelector: topology.kubernetes.io/zone: us-east-1b
+  volumes:
+    - name: nginx-html
+      persistentVolumeClaim:
+        claimName: ebs-dynamic
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: ebs-dynamic
+spec:
+  type: LoadBalancer
+  selector:
+    project: roboshop
+    purpose: practice
+  ports:
+    - protocol: TCP 
+      port: 80
+      targetPort: 80
+      nodePort: 30002
+  

@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: hostpath-demo
+  namespace: kube-system
+  labels:
+    project: roboshop
+    purpose: demo
+spec:
+  selector:
+    matchLabels:
+      project: roboshop
+      purpose: practice
+  template:
+    metadata:
+      name: fluentd
+      labels:
+        project: roboshop
+        purpose: practice
+    spec:
+      containers:
+        - name: fluentd-elasticsearch
+          image: quay.io/fluentd_elasticsearch/fluentd:v5.0.1
+          resources:
+            requests:
+              cpu: 100m
+              memory: 64Mi
+            limits:
+              cpu: 200m
+              memory: 128Mi
+          volumeMounts:
+            - name: varlog
+              mountPath: /var/log
+              readOnly: true
+      terminationGracePeriodSeconds: 30
+      volumes:
+        - name: varlog
+          hostPath:
+            path: /var/log
