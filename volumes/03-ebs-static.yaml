@@ -10,7 +10,7 @@ spec:
     - ReadWriteOnce
   capacity:
     storage: 10Gi
-  persistentVolumereclaimPolicy: Retain
+  persistentVolumeReclaimPolicy: Retain
   csi:
     driver: ebs.csi.aws.com
     fsType: ext4
