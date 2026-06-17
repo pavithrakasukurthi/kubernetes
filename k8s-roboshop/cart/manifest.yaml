@@ -5,8 +5,8 @@ metadata:
   namespace: roboshop
 data:
   REDIS_HOST: "redis" 
-  cart_HOST: "cart" 
-  cart_PORT: "8080"
+  CATALOGUE_HOST: "catalogue" 
+  CATALOGUE_PORT: "8080"
 ---
 apiVersion: apps/v1
 kind: Deployment
