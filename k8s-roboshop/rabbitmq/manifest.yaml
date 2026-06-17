@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: rabbitmq
-          image: pavithrakasukurthi/rabbitmq:v1
+          image: rabbitmq:3
           imagePullPolicy: Always
           env:
             - name: RABBITMQ_DEFAULT_USER

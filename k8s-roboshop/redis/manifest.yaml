@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: redis
-          image: pavithrakasukurthi/redis:v1
+          image: redis:7
           imagePullPolicy: Always
 ---
 apiVersion: v1
