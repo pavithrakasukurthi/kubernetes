@@ -41,7 +41,7 @@ spec:
           image: pavithrakasukurthi/payment:v1
           imagePullPolicy: Always
           envFrom:
-            - ConfigMapRef:
+            - configMapRef:
                 name: payment
 ---
 apiVersion: v1

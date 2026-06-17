@@ -35,7 +35,7 @@ spec:
           image: pavithrakasukurthi/shipping:v1
           imagePullPolicy: Always
           envFrom:
-            - ConfigMapRef:
+            - configMapRef:
                 name: shipping
 ---
 apiVersion: v1

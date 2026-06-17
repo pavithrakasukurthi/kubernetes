@@ -96,7 +96,7 @@ spec:
           image: pavithrakasukurthi/frontend:v1
           imagePullPolicy: Always
           envFrom:
-            - ConfigMapRef:
+            - configMapRef:
                 name: frontend
 ---
 apiVersion: v1

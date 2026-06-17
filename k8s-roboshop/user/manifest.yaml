@@ -37,7 +37,7 @@ spec:
           image: pavithrakasukurthi/user:v1
           imagePullPolicy: Always
           envFrom:
-            - ConfigMapRef:
+            - configMapRef:
                 name: user
 ---
 apiVersion: v1
