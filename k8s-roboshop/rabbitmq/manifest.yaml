@@ -25,6 +25,10 @@ spec:
         - name: rabbitmq
           image: pavithrakasukurthi/rabbitmq:v1
           imagePullPolicy: Always
+          env:
+            - name: RABBITMQ_DEFAULT_USER
+              value: roboshop
+            - name: RABBITMQ_DEFAULT_PASS
 ---
 apiVersion: v1
 kind: Service
