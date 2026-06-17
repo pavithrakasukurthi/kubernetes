@@ -31,7 +31,7 @@ spec:
         component: cart
         tier: backend
     spec:
-      enableServiceLinks: false
+      #enableServiceLinks: false
       containers:
         - name: cart
           image: pavithrakasukurthi/cart:v1
