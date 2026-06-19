@@ -64,7 +64,7 @@ spec:
     spec:
       containers:
         - name: redis
-          image: pavithrakasukurthi/redis:v1
+          image: redis:7
           volumeMounts:
             - name: redis
               mountPath: /data
