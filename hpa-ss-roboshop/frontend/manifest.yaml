@@ -101,7 +101,7 @@ metadata:
   name: frontend
   namespace: roboshop
 spec:
-  type: Loadbalancer
+  type: LoadBalancer
   selector:
     project: roboshop
     component: frontend
