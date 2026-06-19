@@ -38,7 +38,7 @@ spec:
       targetPort: 5672
 ---
 apiVersion: apps/v1
-kind: Statefulset
+kind: StatefulSet
 metadata:
   name: rabbitmq
   namespace: roboshop

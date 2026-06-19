@@ -32,8 +32,8 @@ spec:
           image: pavithrakasukurthi/cart:v1
           imagePullPolicy: Always
           envFrom:
-            configMapRef:
-              name: cart
+           - configMapRef:
+               name: cart
 ---
 apiVersion: v1
 kind: Service
