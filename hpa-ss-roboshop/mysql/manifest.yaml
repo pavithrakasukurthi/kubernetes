@@ -18,7 +18,7 @@ metadata:
     component: mysql
     tier: db
 spec:
-  clusterIp: none
+  clusterIP: none
   selector: 
     project: roboshop
     component: mysql
@@ -32,7 +32,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: mysql-headless
-  namespece: roboshop
+  namespace: roboshop
   labels:
     project: roboshop
     component: mysql
