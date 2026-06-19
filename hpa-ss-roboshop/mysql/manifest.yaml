@@ -1,0 +1,97 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql
+  namespace: roboshop
+data:
+  my.cnf: |
+    [mysqld]
+    innodb_redo_log_capacity = 2G
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql-headless
+  namespece: roboshop
+  labels:
+    project: roboshop
+    component: mysql
+    tier: db
+spec:
+  clusterIp: none
+  selector: 
+    project: roboshop
+    component: mysql
+    tier: db
+  ports:  
+    - protocol: TCP
+      port: 3306
+      targetPort: 3306
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql-headless
+  namespece: roboshop
+  labels:
+    project: roboshop
+    component: mysql
+    tier: db
+spec:
+  selector: 
+    project: roboshop
+    component: mysql
+    tier: db
+  ports:  
+    - protocol: TCP
+      port: 3306
+      targetPort: 3306
+---
+apiVersion: apps/v1
+kind: Statefulset
+metadata:
+  name: mysql
+  namespace: roboshop
+  labels: 
+    project: roboshop
+    component: mysql
+    tier: db
+spec:
+  serviceName: mysql-headless
+  replicas: 2
+  selector:
+    matchLabels:
+      project: roboshop
+      component: mysql
+      tier: db
+  template:
+    metadata:
+      name: mysql
+      labels:
+        project: roboshop
+        component: mysql
+        tier: db
+    spec:
+      containers:
+        - name: mysql
+          image: pavithrakasukurthi/mysql:v1
+          volumeMounts:
+            - name: mysql
+              mountPath: /var/lib/mysql
+            - name: mysql-conf
+              mountPath: /etc/mysql/conf.d/my.cnf
+              subPath: my.cnf
+      volumes:
+        - name: mysql-conf
+          configMap:
+            name: mysql
+  volumeClaimTemplates:
+    - metadata:
+        name: mysql
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        storageClassName: roboshop-ebs 
+        resources:
+          requests:
+            storage: 1Gi

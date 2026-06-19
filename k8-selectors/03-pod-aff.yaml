@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod 
+metadata:
+  name: pod-aff
+  labels:
+    project: roboshop
+    purpose: demo
+spec:
+  affinity:
+    podAffinity:
+      requiredDuringSchedulingIgnoreDuringExecution:
+        labelSelectors:
+          - matchExpressions:
+              - key:
+                operator:
+                values:
+                  - 
+  containers:
+    - name: nginx
+      image: nginx
+      imagePullPolicy: Always
+          

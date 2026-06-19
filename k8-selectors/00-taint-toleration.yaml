@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: taint-tol 
+  labels:
+    project: roboshop
+    purpose: demo 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      project: roboshop
+      purpose: demo
+  template:
+    metadata:
+      labels:
+        project: roboshop
+        purpose: demo
+    spec:
+      nodeSelector:
+        kubernetes.io/hostname: node node hereeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+      containers: 
+        - name: nginx
+          image: nginx
+          imagePullPolicy: Always
+      tolerations:
+        - key: banana
+          operator: Equal
+          value: yellow
+          effect: NoSchedule

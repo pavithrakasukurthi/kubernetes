@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod 
+metadata:
+  name: node-anti 
+  labels:
+    project: roboshop
+    purpose: demo
+spec:
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoreDuringExecution:
+        nodeSelectorTerms:
+          - matchExpressions:
+              - key:
+                operator: NotIn
+                values:
+                  - 
+  containers:
+    - name: nginx
+      image: nginx
+      imagePullPolicy: Always
+          

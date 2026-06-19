@@ -1,0 +1,74 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: catalogue
+  namespace: roboshop
+data:
+  MONGO: "true"
+  MONGO_URL: "mongodb://mongodb:27017/catalogue"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: catalogue
+  namespace: roboshop
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      project: roboshop
+      component: catalogue
+      tier: backend
+  template:
+    metadata:
+      labels:
+        project: roboshop
+        component: catalogue
+        tier: backend
+    spec:
+      containers:
+        - name: catalogue
+          image: pavithrakasukurthi/catalogue:v1
+          imagePullPolicy: Always
+          envFrom:
+            configMapRef:
+              name: catalogue
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: catalogue
+  namespace: roboshop
+spec:
+  selector:
+    project: roboshop
+    component: catalogue
+    tier: backend
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: catalogue
+  namespace: roboshop
+  labels:
+    project: roboshop
+    component: catalogue
+    tier: backend
+spec:
+  scaleTargetRef: 
+    apiVersion: apps/v1
+    kind: Deployment
+    name: catalogue
+  minRelicas: 1
+  maxReplicas: 2
+  metrics:
+    - type: Resource 
+      resource:
+        - name: cpu 
+          target:
+            type: Utilization
+            averageUtilization: 70
