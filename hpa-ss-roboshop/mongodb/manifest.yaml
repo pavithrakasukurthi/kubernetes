@@ -48,7 +48,7 @@ metadata:
     tier: db
 spec:
   serviceName: mongodb-headless
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       project: roboshop

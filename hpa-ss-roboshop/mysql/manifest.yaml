@@ -58,7 +58,7 @@ metadata:
     tier: db
 spec:
   serviceName: mysql-headless
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       project: roboshop

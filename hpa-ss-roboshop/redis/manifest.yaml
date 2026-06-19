@@ -48,7 +48,7 @@ metadata:
     tier: db
 spec:
   serviceName: redis-headless
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       project: roboshop
