@@ -76,8 +76,8 @@ spec:
         - name: mysql
           image: pavithrakasukurthi/mysql:v1
           volumeMounts:
-            - name: mysql
-              mountPath: /var/lib/mysql
+            # - name: mysql
+            #   mountPath: /var/lib/mysql
             - name: mysql-conf
               mountPath: /etc/mysql/conf.d/my.cnf
               subPath: my.cnf
