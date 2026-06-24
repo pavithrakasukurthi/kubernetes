@@ -8,13 +8,13 @@ metadata:
 spec:
   affinity:
     podAffinity:
-      requiredDuringSchedulingIgnoreDuringExecution:
+      requiredDuringSchedulingIgnoredDuringExecution:
         labelSelectors:
           - matchExpressions:
               - key: project
                 operator: In 
-                values: roboshop 
-                  - 
+                values:  
+                  - roboshop
   containers:
     - name: nginx
       image: nginx
