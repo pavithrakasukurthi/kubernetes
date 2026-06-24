@@ -8,14 +8,14 @@ metadata:
 spec:
   affinity:
     podAffinity:
-      topologyKey: topology.kubernetes.io/hostname 
       requiredDuringSchedulingIgnoredDuringExecution:
        - labelSelector:
-          matchExpressions:
+           matchExpressions:
               - key: project
                 operator: In 
                 values:  
                   - roboshop
+         topologyKey: topology.kubernetes.io/hostname
 
   containers:
     - name: nginx
