@@ -11,11 +11,11 @@ spec:
       requiredDuringSchedulingIgnoredDuringExecution:
         - labelSelector:
            matchExpressions:
-              - key:
-                operator:
-                values:
-                  - 
-          topologyKey: topology.kubernetes.io/hostname
+              - key: project
+                operator: In 
+                values: 
+                  - roboshop 
+          topologyKey: kubernetes.io/hostname
   containers:
     - name: nginx
       image: nginx
