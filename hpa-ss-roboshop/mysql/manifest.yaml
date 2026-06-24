@@ -76,8 +76,8 @@ spec:
         - name: mysql
           image: pavithrakasukurthi/mysql:v1
           volumeMounts:
-            # - name: mysql
-            #   mountPath: /var/lib/mysql
+            - name: mysql
+              mountPath: /var/lib/mysql
             - name: mysql-conf
               mountPath: /etc/mysql/conf.d/my.cnf
               subPath: my.cnf
@@ -85,13 +85,13 @@ spec:
         - name: mysql-conf
           configMap:
             name: mysql
-  # volumeClaimTemplates:
-  #   - metadata:
-  #       name: mysql
-  #     spec:
-  #       accessModes:
-  #         - ReadWriteOnce
-  #       storageClassName: roboshop-ebs 
-  #       resources:
-  #         requests:
-  #           storage: 1Gi
+  volumeClaimTemplates:
+    - metadata:
+        name: mysql
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        storageClassName: roboshop-ebs 
+        resources:
+          requests:
+            storage: 3Gi
