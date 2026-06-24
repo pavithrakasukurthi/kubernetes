@@ -22,14 +22,14 @@ spec:
             - key: important
               operator: In 
               values: 
-                - yeah
+                - "yeah"
        - weight: 10
          preference:
           matchExpressions:
             - key: important
               operator: In
               values:
-                - no 
+                - "no" 
   containers:
     - name: nginx
       image: nginx
