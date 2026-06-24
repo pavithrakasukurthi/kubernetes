@@ -23,7 +23,7 @@ spec:
               operator:
               values:
                 - 
-       - weight:
+       - weight: 10
          preference:
           matchExpressions:
             - key:

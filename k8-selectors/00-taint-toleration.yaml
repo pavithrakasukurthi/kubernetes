@@ -18,7 +18,7 @@ spec:
         purpose: demo
     spec:
       nodeSelector:
-        kubernetes.io/hostname: node node hereeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+        kubernetes.io/hostname: ip-192-168-24-6.ec2.internal
       containers: 
         - name: nginx
           image: nginx
