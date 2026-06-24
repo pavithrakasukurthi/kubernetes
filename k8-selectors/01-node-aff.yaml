@@ -28,7 +28,7 @@ spec:
           matchExpressions:
             - key: important
               operator: In
-              value:
+              values:
                 - no 
   containers:
     - name: nginx
