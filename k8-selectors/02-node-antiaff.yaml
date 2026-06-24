@@ -11,9 +11,9 @@ spec:
       requiredDuringSchedulingIgnoreDuringExecution:
         nodeSelectorTerms:
           - matchExpressions:
-              - key:
+              - key: topology.kubernetes.io/zone
                 operator: NotIn
-                values:
+                values: us-east-1b
                   - 
   containers:
     - name: nginx
