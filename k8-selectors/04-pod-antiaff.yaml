@@ -9,8 +9,8 @@ spec:
   affinity:
     podAntiAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:
-        labelSelectors:
-          - matchExpressions:
+        - labelSelector:
+           matchExpressions:
               - key:
                 operator:
                 values:
