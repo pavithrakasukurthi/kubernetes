@@ -17,7 +17,7 @@ spec:
                 - us-east-1b
       preferredDuringSchedulingIgnoredDuringExecution:
        - weight: 20
-         prefence:
+         preference:
           matchExpressions:
             - key: important
               operator: In 
