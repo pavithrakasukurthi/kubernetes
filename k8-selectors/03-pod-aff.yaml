@@ -11,9 +11,9 @@ spec:
       requiredDuringSchedulingIgnoreDuringExecution:
         labelSelectors:
           - matchExpressions:
-              - key:
-                operator:
-                values:
+              - key: project
+                operator: In 
+                values: roboshop 
                   - 
   containers:
     - name: nginx
