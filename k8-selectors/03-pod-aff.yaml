@@ -8,6 +8,7 @@ metadata:
 spec:
   affinity:
     podAffinity:
+      topologyKey: topology.kubernetes.io/hostname 
       requiredDuringSchedulingIgnoredDuringExecution:
        - labelSelector:
           matchExpressions:
@@ -15,6 +16,7 @@ spec:
                 operator: In 
                 values:  
                   - roboshop
+
   containers:
     - name: nginx
       image: nginx
