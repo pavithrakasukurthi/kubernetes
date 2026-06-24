@@ -8,14 +8,14 @@ metadata:
 spec:
   affinity:
     nodeAffinity:
-      requiredDuringSchedulingIgnoreDuringExecution:
+      requiredDuringSchedulingIgnoredDuringExecution:
         nodeSelectorTerms:
           - matchExpressions:
              - key: topology.kubernetes.io/zone
                operator: In 
                values: 
                 - us-east-1b
-      preferredDuringSchedulingIgnoreDuringExecution:
+      preferredDuringSchedulingIgnoredDuringExecution:
        - weight: 20
          prefence:
           matchExpressions:
