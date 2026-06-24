@@ -85,13 +85,13 @@ spec:
         - name: mysql-conf
           configMap:
             name: mysql
-  volumeClaimTemplates:
-    - metadata:
-        name: mysql
-      spec:
-        accessModes:
-          - ReadWriteOnce
-        storageClassName: roboshop-ebs 
-        resources:
-          requests:
-            storage: 1Gi
+  # volumeClaimTemplates:
+  #   - metadata:
+  #       name: mysql
+  #     spec:
+  #       accessModes:
+  #         - ReadWriteOnce
+  #       storageClassName: roboshop-ebs 
+  #       resources:
+  #         requests:
+  #           storage: 1Gi
