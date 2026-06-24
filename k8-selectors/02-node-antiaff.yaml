@@ -8,13 +8,13 @@ metadata:
 spec:
   affinity:
     nodeAffinity:
-      requiredDuringSchedulingIgnoreDuringExecution:
+      requiredDuringSchedulingIgnoredDuringExecution:
         nodeSelectorTerms:
           - matchExpressions:
               - key: topology.kubernetes.io/zone
                 operator: NotIn
-                values: us-east-1b
-                  - 
+                values: 
+                  - us-east-1b
   containers:
     - name: nginx
       image: nginx
