@@ -1,0 +1,6 @@
+deployment:
+  replicas: 1
+  imageRepo: rabbitmq
+  imageVersion: 3
+service:
+  servicePort: 5672

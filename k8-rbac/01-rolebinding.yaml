@@ -1,0 +1,13 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: roboshop-trainee
+  namespace: roboshop
+subjects:
+  - kind: user
+    name: Pavithra 
+    apiGroup: rbac.authorization.k8s.io/v1
+roleref:
+  kind: Role
+  name: roboshop-trainee
+  apiGroup: rbac.authorization.k8s.io/v1

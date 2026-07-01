@@ -1,0 +1,5 @@
+apiVersion: v2
+name: user  
+version: 1.0.0
+description: user installation
+appVersion: v1

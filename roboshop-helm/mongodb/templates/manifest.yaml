@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongodb
+  namespace: roboshop
+  labels:
+    project: roboshop
+    component: mongodb
+    tier: db
+spec:
+  replicas: {{ .Values.deployment.replicas }}
+  selector:
+    matchLabels:
+      project: roboshop
+      component: mongodb
+      tier: db
+  template:
+    metadata:
+      labels:
+        project: roboshop
+        component: mongodb
+        tier: db
+    spec:
+      containers:
+        - name: mongodb
+          image: "{{ .Values.deployment.imageRepo }}:{{ .Values.deployment.imageVersion }}"
+          imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb
+  namespace: roboshop
+spec:
+  selector:
+    project: roboshop
+    component: mongodb
+    tier: db
+  ports:
+    - protocol: TCP
+      port: {{ .Values.service.servicePort }}
+      targetPort: 27017

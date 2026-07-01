@@ -1,0 +1,6 @@
+deployment:
+  replicas: 1
+  imageRepo: pavithrakasukurthi/mysql 
+  imageVersion: v1
+service:
+  servicePort: 3306

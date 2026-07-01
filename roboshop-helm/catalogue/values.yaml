@@ -1,0 +1,6 @@
+deployment:
+  replicas: 2
+  imageRepo: pavithrakasukurthi/catalogue
+  imageVersion: v1
+service:
+  servicePort: 8080

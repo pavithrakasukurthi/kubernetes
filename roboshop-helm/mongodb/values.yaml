@@ -1,0 +1,6 @@
+deployment:
+  replicas: 1
+  imageRepo: pavithrakasukurthi/mongodb
+  imageVersion: v1
+service:
+  servicePort: 27017

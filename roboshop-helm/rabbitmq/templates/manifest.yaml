@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rabbitmq
+  namespace: roboshop
+  labels:
+    project: roboshop
+    component: rabbitmq
+    tier: db
+spec:
+  replicas: {{ .Values.deployment.replicas }}
+  selector:
+    matchLabels:
+      project: roboshop
+      component: rabbitmq
+      tier: db
+  template:
+    metadata:
+      labels:
+        project: roboshop
+        component: rabbitmq
+        tier: db
+    spec:
+      containers:
+        - name: rabbitmq
+          image: "{{ .Values.deployment.imageRepo }}:{{ .Values.deployment.imageVersion }}"
+          imagePullPolicy: Always
+          env:
+            - name: RABBITMQ_DEFAULT_USER
+              value: roboshop
+            - name: RABBITMQ_DEFAULT_PASS
+              value: roboshop123
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rabbitmq
+  namespace: roboshop
+spec:
+  selector:
+    project: roboshop
+    component: rabbitmq
+    tier: db
+  ports:
+    - protocol: TCP
+      port: {{ .Values.service.servicePort }}
+      targetPort: 5672
